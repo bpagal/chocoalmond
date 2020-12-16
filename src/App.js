@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { almonds: 0 };
+    }
+    render() {
+        return (
+            <div>
+                <h1>Choco Almonds: {this.state.almonds}</h1>
+                {Array(this.state.almonds).fill(<img src="https://img.icons8.com/dusk/64/000000/chocolate-truffle-.png" />)}
+                <a
+                    href="#"
+                    className="btn btn-indigo"
+                    onClick={() => {
+                        this.setState((state) => ({
+                            almonds: state.almonds + 1,
+                        }));
+                    }}
+                >
+                    Add
+                </a>
+
+                <a style={{ display: "block" }} href="https://icons8.com/icon/97275/chocolate-truffle">
+                    Chocolate Truffle icon by Icons8
+                </a>
+            </div>
+        );
+    }
 }
 
 export default App;
